@@ -29,7 +29,7 @@ public class TemaRepositoryTest {
     }
 
     @Test
-    public void testAddAssignmentNullId() {
+    public void testAddExistingAssignment() {
         final String id1 = "1";
         final String description1 = "desc";
         final int deadline1 = 1;
