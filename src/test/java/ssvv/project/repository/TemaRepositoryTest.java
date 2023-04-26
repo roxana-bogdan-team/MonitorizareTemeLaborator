@@ -47,4 +47,121 @@ public class TemaRepositoryTest {
         assertEquals(tema1, result2);
     }
 
+
+    @Test
+    public void testAddAssignmentNullId() {
+        final String id = null;
+        final String description = "desc";
+        final int deadline = 1;
+        final int startline = 1;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentEmptyId() {
+        final String id = "";
+        final String description = "desc";
+        final int deadline = 1;
+        final int startline = 1;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentNullDescription() {
+        final String id = "1";
+        final String description = null;
+        final int deadline = 1;
+        final int startline = 1;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentEmptyDescription() {
+        final String id = "1";
+        final String description = "";
+        final int deadline = 1;
+        final int startline = 1;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentInvalidDeadline0() {
+        final String id = "1";
+        final String description = "desc";
+        final int deadline = 0;
+        final int startline = 1;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentInvalidDeadline15() {
+        final String id = "1";
+        final String description = "desc";
+        final int deadline = 15;
+        final int startline = 1;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentInvalidStartline0() {
+        final String id = "1";
+        final String description = "desc";
+        final int deadline = 1;
+        final int startline = 0;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentInvalidStartline15() {
+        final String id = "1";
+        final String description = "desc";
+        final int deadline = 1;
+        final int startline = 15;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
+
+    @Test
+    public void testAddAssignmentInvalidStartlineGtDeadline() {
+        final String id = "1";
+        final String description = "desc";
+        final int deadline = 7;
+        final int startline = 8;
+        Tema tema = new Tema(id, description, deadline, startline);
+
+        final Tema result = temaRepository.save(tema);
+
+        assertEquals(tema, result);
+    }
 }
